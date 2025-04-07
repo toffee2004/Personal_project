@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Breadcrumb from './components/Breadcrumb';
+import FilterBar from './components/FilterBar';
+import ProductList from './components/ProductList';
+import Pagination from './components/Pagination';
+import Footer from './components/Footer';
+import './styles.css';
 
-function App() {
+const App = () => {
+  const [products, setProducts] = useState([]); // Replace with actual product data
+  const [category, setCategory] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handleSearch = () => {
+    // Implement search logic
+  };
+
+  const handleShowAllProducts = () => {
+    // Implement show all products logic
+  };
+
+  const handleCategorySelect = (categoryName) => {
+    setCategory(categoryName);
+    // Implement category filtering logic
+  };
+
+  const handleFilter = () => {
+    // Implement filter logic
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header onSearch={handleSearch} onShowAllProducts={handleShowAllProducts} />
+      <Sidebar onCategorySelect={handleCategorySelect} />
+      <main>
+        <Breadcrumb category={category} />
+        <FilterBar onFilter={handleFilter} selectedCategory={category} />
+        <ProductList products={products} />
+        <Pagination
+          totalPages={5} // Replace with actual total pages
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </main>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

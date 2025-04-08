@@ -225,16 +225,7 @@ main {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.footer {
-  background-color: #4CAF50;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
+
 .product-icon {
   width: 100px;
   height: 100px;
@@ -271,7 +262,7 @@ main {
 }
 
 /* Footer */
-footer {
+footer, .footer {
   background-color: #4CAF50;
   color: white;
   text-align: center;
@@ -279,6 +270,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* About us section */

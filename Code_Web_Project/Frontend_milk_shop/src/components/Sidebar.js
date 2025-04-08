@@ -5,7 +5,7 @@ const Sidebar = ({ onCategorySelect }) => {
     <nav className="sidebar">
       <ul>
         <li className="parent">
-          <span>Danh mục sữa</span>
+          <span>&#9776; Danh mục sữa</span> {/* Thêm dấu ba gạch */}
           <ul className="submenu">
             <li onClick={() => onCategorySelect('Sữa cho trẻ em', '1-16')}>Sữa cho trẻ em</li>
             <li onClick={() => onCategorySelect('Sữa cho người lớn', '17-50')}>Sữa cho người lớn</li>

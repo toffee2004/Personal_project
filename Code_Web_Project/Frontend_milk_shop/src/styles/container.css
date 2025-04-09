@@ -1,0 +1,5 @@
+.container {
+    display: flex;
+    justify-content: center; /* Căn giữa toàn bộ nội dung */
+    padding: 20px;
+  }

@@ -1,46 +1,52 @@
-/* Sidebar in minimized state */
+/* Sidebar mặc định thu nhỏ */
 .sidebar {
-  width: 180px; /* Minimized sidebar */
-  background-color: #2C3E50;
-  color: white;
+  width: 60px; /* Chiều rộng thu nhỏ */
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 10px; /* Reduce padding */
+  background-color: #2C3E50;
+  color: white;
+  padding: 15px 0; /* Giảm padding để phù hợp với kích thước nhỏ */
   overflow-y: auto;
-  transition: width 0.3s ease; /* Smooth transition */
-  z-index: 1000; /* Ensure Sidebar is above Footer */
+  z-index: 1000;
+  transition: width 0.3s ease; /* Hiệu ứng chuyển đổi kích thước */
 }
 
+/* Sidebar phóng to khi hover */
+.sidebar:hover {
+  width: 220px; /* Chiều rộng khi phóng to */
+}
 
+.content {
+  margin-left: 220px; /* Đẩy nội dung sang phải để không bị che */
+  transition: margin-left 0.3s ease;
+}
+
+/* Danh sách các mục trong Sidebar */
 .sidebar ul {
   list-style: none;
   padding: 0;
-  position: relative;
-  display: flex; /* Use flexbox for alignment */
-  flex-direction: column; /* Align items vertically */
-  justify-content: center; /* Center items vertically */
-  align-items: center; /* Center items horizontally */
+  margin: 0;
 }
 
-.sidebar li {
-  margin-bottom: 10px;
+.sidebar ul li {
   cursor: pointer;
-  white-space: nowrap; /* Ensure text does not wrap */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Display "..." if text is truncated */
-}
-
-.sidebar li.active {
-  background-color: #E74C3C;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.sidebar li:hover {
+  padding: 10px 15px;
+  margin-bottom: 10px;
   background-color: #34495E;
   color: white;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li.active {
+  background-color: #E74C3C;
+}
+
+.sidebar ul li:hover {
+  background-color: #1ABC9C;
 }
 
 /* Sidebar submenu */
@@ -64,4 +70,9 @@
 
 .sidebar .parent:hover .submenu {
   display: block;
+}
+
+.sidebar:hover + footer {
+  left: 220px; /* Điều chỉnh khoảng cách khi sidebar phóng to */
+  width: calc(100% - 220px); /* Điều chỉnh chiều rộng */
 }

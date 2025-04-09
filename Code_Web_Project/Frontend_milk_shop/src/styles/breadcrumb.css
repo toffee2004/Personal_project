@@ -1,15 +1,15 @@
 /* Ensure Breadcrumb adjusts with Sidebar */
 .breadcrumb {
-  margin-left: 70px; /* Default margin when sidebar is minimized */
+  margin-left: 70px;
   background-color: #a83939;
   padding: 10px;
   margin-bottom: 20px;
   font-size: 14px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  transition: margin-left 0.3s ease; /* Smooth transition when sidebar expands */
+  transition: margin-left 0.3s ease;
 }
 
 .sidebar:hover + .breadcrumb {
-  margin-left: 210px; /* Adjust margin when sidebar expands */
+  margin-left: 210px;
 }

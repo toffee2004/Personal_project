@@ -1,17 +1,19 @@
 /* Ensure FilterBar adjusts with Sidebar */
 .filter-bar {
-  margin-left: 70px; /* Push FilterBar to the right to avoid being hidden by the sidebar */
-  padding: 10px; /* Reduce padding */
-  transition: margin-left 0.3s ease; /* Effect when the sidebar expands */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center; /* Center the elements */
-  gap: 10px; /* Reduce spacing between elements */
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 1px; /* Slightly rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  gap: 15px; /* Khoảng cách giữa các phần tử */
+  padding: 10px 20px;
+  background-color: #f9f9f9; /* Màu nền nhạt */
+  border: 1px solid #ddd; /* Viền nhạt */
+  border-radius: 8px; /* Bo góc */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  width: calc(100% - 40px); /* Đặt chiều rộng vừa với danh sách sản phẩm */
+  max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+  margin: 0 auto 20px auto; /* Căn giữa và thêm khoảng cách dưới */
+  transition: margin-left 0.3s ease; /* Effect when the sidebar expands */
 }
 
 .sidebar:hover + .filter-bar {
@@ -19,7 +21,7 @@
 }
 
 .filter-bar label {
-  font-size: 12px; /* Reduce font size */
+  font-size: 14px; /* Reduce font size */
   font-weight: bold;
   color: #333;
   margin-right: 5px; /* Reduce spacing */
@@ -27,8 +29,8 @@
 
 .filter-bar select,
 .filter-bar input {
-  padding: 5px; /* Reduce padding */
-  font-size: 12px; /* Reduce font size */
+  padding: 8px; /* Reduce padding */
+  font-size: 14px; /* Reduce font size */
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100px; /* Reduce width */
@@ -42,8 +44,8 @@
 }
 
 .filter-bar button {
-  padding: 5px 10px; /* Reduce padding */
-  font-size: 12px; /* Reduce font size */
+  padding: 8px 15px; /* Reduce padding */
+  font-size: 14px; /* Reduce font size */
   background-color: #4CAF50;
   color: white;
   border: none;

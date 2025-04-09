@@ -3,15 +3,15 @@
   justify-content: center;
   align-items: center;
   background-color: #4CAF50;
-  padding: 10px;
+  padding: 15px 20px;
   color: white;
-  z-index: 1; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .search-bar {
   display: flex;
   align-items: center;
   gap: 10px;
-  z-index: 1;
 }
 
 .search-bar label {
@@ -22,16 +22,24 @@
 }
 
 .search-bar input,
-.search-bar button {
-  padding: 5px;
+.search-bar select {
+  padding: 8px;
   font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .search-bar button {
-  background-color: #4CAF50;
-  color: white;
+  padding: 8px 12px;
+  background-color: #ffffff;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .search-bar button:hover {
-  background-color: #45a049;
+  background-color: #4CAF50;
+  color: white;
 }

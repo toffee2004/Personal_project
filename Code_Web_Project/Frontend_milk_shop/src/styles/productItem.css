@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: center; /* Căn giữa toàn bộ nội dung */
+    padding: 20px;
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sản phẩm mỗi hàng */
+    gap: 30px; /* Tăng khoảng cách giữa các sản phẩm */
+    justify-content: center; /* Căn giữa các sản phẩm */
+    margin: 20px auto; /* Căn giữa toàn bộ danh sách sản phẩm */
+    max-width: 1200px; /* Giới hạn chiều rộng */
+    padding: 0 20px; /* Thêm khoảng cách hai bên */
+  }
+  
+  .product-item {
+    border: 1px solid #ddd;
+    padding: 20px; /* Tăng padding để sản phẩm thoáng hơn */
+    border-radius: 10px; /* Bo góc mềm mại hơn */
+    text-align: center;
+    background-color: #ffffff; /* Màu nền trắng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tăng hiệu ứng đổ bóng */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng hover */
+  }
+  
+  .product-item:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên khi hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Tăng đổ bóng khi hover */
+  }
+  
+  .product-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333; /* Màu chữ đậm hơn */
+  }

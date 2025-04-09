@@ -1,0 +1,9 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 sản phẩm mỗi hàng */
+  gap: 30px; /* Tăng khoảng cách giữa các sản phẩm */
+  justify-content: center; /* Căn giữa các sản phẩm */
+  margin: 20px auto; /* Căn giữa toàn bộ danh sách sản phẩm */
+  max-width: 1200px; /* Giới hạn chiều rộng */
+  padding: 0 20px; /* Thêm khoảng cách hai bên */
+}

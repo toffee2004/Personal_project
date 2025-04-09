@@ -37,15 +37,12 @@ select:focus {
   outline: none;
 }
 
+/* Message for no products */
 #no-products-message {
   font-size: 16px;
   color: red;
   margin-top: 20px;
   text-align: center;
-}
-
-.sidebar:hover + .body {
-  margin-left: 250px; 
 }
 
 /* App container */
@@ -61,23 +58,26 @@ select:focus {
   margin-left: 200px; /* Adjust margin when Sidebar is expanded */
 }
 
+/* Nội dung chính */
+.content {
+  margin-left: 60px; /* Khoảng cách mặc định khi sidebar thu nhỏ */
+  transition: margin-left 0.3s ease; /* Hiệu ứng chuyển đổi mượt */
+}
+
+.sidebar:hover + .content {
+  margin-left: 220px; /* Điều chỉnh khoảng cách khi sidebar phóng to */
+}
+
+/* Header */
 header {
   position: fixed;
   top: 0;
-  left: 60px; /* Default margin when Sidebar is minimized */
-  width: calc(100% - 60px); /* Adjust width to exclude Sidebar */
+  left: 60px; /* Khoảng cách mặc định khi sidebar thu nhỏ */
+  width: calc(100% - 60px); /* Điều chỉnh chiều rộng */
   transition: left 0.3s ease, width 0.3s ease;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 60px; /* Default margin when Sidebar is minimized */
-  width: calc(100% - 60px); /* Adjust width to exclude Sidebar */
-  transition: left 0.3s ease, width 0.3s ease;
-}
-
-.content {
-  margin-left: 60px; /* Default margin when Sidebar is minimized */
-  transition: margin-left 0.3s ease; /* Smooth transition */
+.sidebar:hover + header {
+  left: 220px; /* Điều chỉnh khoảng cách khi sidebar phóng to */
+  width: calc(100% - 220px); /* Điều chỉnh chiều rộng */
 }

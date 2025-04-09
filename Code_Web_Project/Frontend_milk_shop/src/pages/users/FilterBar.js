@@ -6,6 +6,7 @@ const FilterBar = ({ onFilter, selectedCategory }) => {
   const [typeOptions, setTypeOptions] = useState(['Lon', 'Hộp', 'Thùng']);
   const [priceMin, setPriceMin] = useState(0);
   const [priceMax, setPriceMax] = useState('');
+  const [selectedAge, setSelectedAge] = useState('');
 
   // Cập nhật danh sách độ tuổi dựa trên danh mục
   useEffect(() => {
@@ -33,10 +34,21 @@ const FilterBar = ({ onFilter, selectedCategory }) => {
     }
   };
 
+  const handleFilterClick = () => {
+    if (selectedAge) {
+      onFilter(Number(selectedAge));
+    }
+  };
+
   return (
     <div className="filter-bar">
       <label>Độ Tuổi</label>
-      <select id="age-range">
+      <select
+        id="age-range"
+        value={selectedAge}
+        onChange={(e) => setSelectedAge(e.target.value)}
+      >
+        <option value="">Tất cả</option>
         {ageOptions.map((age, index) => (
           <option key={index} value={age}>
             {age}
@@ -85,7 +97,7 @@ const FilterBar = ({ onFilter, selectedCategory }) => {
       </div>
 
       {/* Nút Xác Nhận */}
-      <button onClick={onFilter}>Xác Nhận</button>
+      <button onClick={handleFilterClick}>Lọc</button>
     </div>
   );
 };

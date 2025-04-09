@@ -4,7 +4,7 @@ import '../styles/footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>Về chúng tôi: Đây là trang web sữa.</p>
+      <p>About : </p>
     </footer>
   );
 };

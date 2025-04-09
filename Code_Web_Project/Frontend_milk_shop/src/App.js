@@ -18,16 +18,16 @@ const FilterBar = ({ onFilter, selectedCategory }) => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedPrice, setSelectedPrice] = useState('');
 
-  // Xác định các giá trị độ tuổi dựa trên danh mục
+  // Determine age values based on the category
   const getAgeOptions = () => {
-    if (selectedCategory === 'Sữa cho trẻ em') {
-      return Array.from({ length: 16 }, (_, i) => i + 1); // Từ 1 đến 16
-    } else if (selectedCategory === 'Sữa cho người lớn') {
-      return Array.from({ length: 34 }, (_, i) => i + 17); // Từ 17 đến 50
-    } else if (selectedCategory === 'Sữa cho người già') {
-      return Array.from({ length: 50 }, (_, i) => i + 51); // Từ 51 đến 100
+    if (selectedCategory === 'Milk for children') {
+      return Array.from({ length: 16 }, (_, i) => i + 1); // From 1 to 16
+    } else if (selectedCategory === 'Milk for adults') {
+      return Array.from({ length: 34 }, (_, i) => i + 17); // From 17 to 50
+    } else if (selectedCategory === 'Milk for the elderly') {
+      return Array.from({ length: 50 }, (_, i) => i + 51); // From 51 to 100
     }
-    return []; // Mặc định không có giá trị
+    return []; // Default no values
   };
 
   const handleFilterClick = () => {
@@ -41,10 +41,10 @@ const FilterBar = ({ onFilter, selectedCategory }) => {
 
   return (
     <div className="filter-bar">
-      {/* Lọc theo độ tuổi */}
-      <label>Độ Tuổi</label>
+      {/* Filter by age */}
+      <label>Age</label>
       <select value={selectedAge} onChange={(e) => setSelectedAge(e.target.value)}>
-        <option value="">Tất cả</option>
+        <option value="">All</option>
         {getAgeOptions().map((age) => (
           <option key={age} value={age}>
             {age}
@@ -52,10 +52,10 @@ const FilterBar = ({ onFilter, selectedCategory }) => {
         ))}
       </select>
 
-      {/* Lọc theo thương hiệu */}
-      <label>Thương Hiệu</label>
+      {/* Filter by brand */}
+      <label>Brand</label>
       <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)}>
-        <option value="">Tất cả</option>
+        <option value="">All</option>
         <option value="Vinamilk">Vinamilk</option>
         <option value="Abbott">Abbott</option>
         <option value="Nutifood">Nutifood</option>
@@ -64,25 +64,25 @@ const FilterBar = ({ onFilter, selectedCategory }) => {
         <option value="Namyang">Namyang</option>
       </select>
 
-      {/* Lọc theo dạng */}
-      <label>Dạng</label>
+      {/* Filter by type */}
+      <label>Type</label>
       <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
-        <option value="">Tất cả</option>
-        <option value="Lon">Lon</option>
-        <option value="Hộp">Hộp</option>
-        <option value="Thùng">Thùng</option>
+        <option value="">All</option>
+        <option value="Can">Can</option>
+        <option value="Box">Box</option>
+        <option value="Carton">Carton</option>
       </select>
 
-      {/* Lọc theo giá */}
-      <label>Giá</label>
+      {/* Filter by price */}
+      <label>Price</label>
       <select value={selectedPrice} onChange={(e) => setSelectedPrice(e.target.value)}>
-        <option value="">Tất cả</option>
-        <option value="asc">Giá tăng dần</option>
-        <option value="desc">Giá giảm dần</option>
+        <option value="">All</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
       </select>
 
-      {/* Nút Lọc */}
-      <button onClick={handleFilterClick}>Lọc</button>
+      {/* Filter button */}
+      <button onClick={handleFilterClick}>Filter</button>
     </div>
   );
 };
@@ -91,26 +91,26 @@ const App = () => {
   const [category, setCategory] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([
-    { id: 1, name: 'Sữa Dielac Alpha', brand: 'Vinamilk', type: 'Lon', price: 200000, ageRange: '1-3' },
-    { id: 2, name: 'Sữa Ensure Gold', brand: 'Abbott', type: 'Hộp', price: 500000, ageRange: '51-100' },
-    { id: 3, name: 'Sữa Grow Plus', brand: 'Nutifood', type: 'Thùng', price: 300000, ageRange: '4-10' },
-    { id: 4, name: 'Sữa Anlene', brand: 'Fonterra', type: 'Lon', price: 400000, ageRange: '17-50' },
-    { id: 5, name: 'Sữa Friso Gold', brand: 'FrieslandCampina', type: 'Hộp', price: 350000, ageRange: '1-6' },
-    { id: 6, name: 'Sữa XO', brand: 'Namyang', type: 'Lon', price: 450000, ageRange: '7-12' },
-    { id: 7, name: 'Sữa PediaSure', brand: 'Abbott', type: 'Thùng', price: 550000, ageRange: '1-10' },
-    { id: 8, name: 'Sữa Dielac Grow', brand: 'Vinamilk', type: 'Hộp', price: 250000, ageRange: '4-16' },
-    { id: 9, name: 'Sữa Ensure Original', brand: 'Abbott', type: 'Lon', price: 480000, ageRange: '61-100' },
-    { id: 10, name: 'Sữa Optimum Gold', brand: 'Vinamilk', type: 'Thùng', price: 400000, ageRange: '1-3' },
-    { id: 11, name: 'Sữa Dielac Alpha', brand: 'Vinamilk', type: 'Lon', price: 200000, ageRange: '3-7' },
-    { id: 12, name: 'Sữa Ensure Gold', brand: 'Abbott', type: 'Hộp', price: 500000, ageRange: '80-100' },
-    { id: 13, name: 'Sữa Grow Plus', brand: 'Nutifood', type: 'Thùng', price: 300000, ageRange: '8-10' },
-    { id: 14, name: 'Sữa Anlene', brand: 'Fonterra', type: 'Lon', price: 400000, ageRange: '17-55' },
-    { id: 15, name: 'Sữa Friso Gold', brand: 'FrieslandCampina', type: 'Hộp', price: 350000, ageRange: '2-7' },
-    { id: 16, name: 'Sữa XO', brand: 'Namyang', type: 'Lon', price: 450000, ageRange: '7-16' },
-    { id: 17, name: 'Sữa PediaSure', brand: 'Abbott', type: 'Thùng', price: 550000, ageRange: '5-10' },
-    { id: 18, name: 'Sữa Dielac Grow', brand: 'Vinamilk', type: 'Hộp', price: 250000, ageRange: '12-16' },
-    { id: 19, name: 'Sữa Ensure Original', brand: 'Abbott', type: 'Lon', price: 480000, ageRange: '55-100' },
-    { id: 20, name: 'Sữa Optimum Gold', brand: 'Vinamilk', type: 'Thùng', price: 400000, ageRange: '1-16' },
+    { id: 1, name: 'Dielac Alpha Milk', brand: 'Vinamilk', type: 'Can', price: 200000, ageRange: '1-3' },
+    { id: 2, name: 'Ensure Gold Milk', brand: 'Abbott', type: 'Box', price: 500000, ageRange: '51-100' },
+    { id: 3, name: 'Grow Plus Milk', brand: 'Nutifood', type: 'Carton', price: 300000, ageRange: '4-10' },
+    { id: 4, name: 'Anlene Milk', brand: 'Fonterra', type: 'Can', price: 400000, ageRange: '17-50' },
+    { id: 5, name: 'Friso Gold Milk', brand: 'FrieslandCampina', type: 'Box', price: 350000, ageRange: '1-6' },
+    { id: 6, name: 'XO Milk', brand: 'Namyang', type: 'Can', price: 450000, ageRange: '7-12' },
+    { id: 7, name: 'PediaSure Milk', brand: 'Abbott', type: 'Carton', price: 550000, ageRange: '1-10' },
+    { id: 8, name: 'Dielac Grow Milk', brand: 'Vinamilk', type: 'Box', price: 250000, ageRange: '4-16' },
+    { id: 9, name: 'Ensure Original Milk', brand: 'Abbott', type: 'Can', price: 480000, ageRange: '61-100' },
+    { id: 10, name: 'Optimum Gold Milk', brand: 'Vinamilk', type: 'Carton', price: 400000, ageRange: '1-3' },
+    { id: 11, name: 'Dielac Alpha Milk', brand: 'Vinamilk', type: 'Can', price: 200000, ageRange: '3-7' },
+    { id: 12, name: 'Ensure Gold Milk', brand: 'Abbott', type: 'Box', price: 500000, ageRange: '80-100' },
+    { id: 13, name: 'Grow Plus Milk', brand: 'Nutifood', type: 'Carton', price: 300000, ageRange: '8-10' },
+    { id: 14, name: 'Anlene Milk', brand: 'Fonterra', type: 'Can', price: 400000, ageRange: '17-55' },
+    { id: 15, name: 'Friso Gold Milk', brand: 'FrieslandCampina', type: 'Box', price: 350000, ageRange: '2-7' },
+    { id: 16, name: 'XO Milk', brand: 'Namyang', type: 'Can', price: 450000, ageRange: '7-16' },
+    { id: 17, name: 'PediaSure Milk', brand: 'Abbott', type: 'Carton', price: 550000, ageRange: '5-10' },
+    { id: 18, name: 'Dielac Grow Milk', brand: 'Vinamilk', type: 'Box', price: 250000, ageRange: '12-16' },
+    { id: 19, name: 'Ensure Original Milk', brand: 'Abbott', type: 'Can', price: 480000, ageRange: '55-100' },
+    { id: 20, name: 'Optimum Gold Milk', brand: 'Vinamilk', type: 'Carton', price: 400000, ageRange: '1-16' },
   ]);
   
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -131,13 +131,13 @@ const App = () => {
   const handleCategorySelect = (categoryName) => {
     setCategory(categoryName);
   
-    // Lọc sản phẩm theo danh mục
+    // Filter products by category
     let ageRange = '';
-    if (categoryName === 'Sữa cho trẻ em') {
+    if (categoryName === 'Milk for children') {
       ageRange = '1-16';
-    } else if (categoryName === 'Sữa cho người lớn') {
+    } else if (categoryName === 'Milk for adults') {
       ageRange = '17-50';
-    } else if (categoryName === 'Sữa cho người già') {
+    } else if (categoryName === 'Milk for the elderly') {
       ageRange = '51-100';
     }
   
@@ -156,7 +156,7 @@ const App = () => {
   const handleFilter = ({ age, brand, type, price }) => {
     let filtered = products;
   
-    // Lọc theo độ tuổi
+    // Filter by age
     if (age) {
       filtered = filtered.filter((product) => {
         const [minAge, maxAge] = product.ageRange.split('-').map(Number);
@@ -164,17 +164,17 @@ const App = () => {
       });
     }
   
-    // Lọc theo thương hiệu
+    // Filter by brand
     if (brand) {
       filtered = filtered.filter((product) => product.brand === brand);
     }
   
-    // Lọc theo dạng
+    // Filter by type
     if (type) {
       filtered = filtered.filter((product) => product.type === type);
     }
   
-    // Lọc theo giá
+    // Filter by price
     if (price === 'asc') {
       filtered = filtered.sort((a, b) => a.price - b.price);
     } else if (price === 'desc') {
@@ -188,7 +188,7 @@ const App = () => {
     setCurrentPage(page);
   };
 
-  const itemsPerPage = 6; // Số sản phẩm mỗi trang
+  const itemsPerPage = 6; // Number of products per page
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
@@ -209,20 +209,20 @@ const App = () => {
                 productsToDisplay.map((product) => (
                   <div key={product.id} className="product-item">
                     <h3>{product.name}</h3>
-                    <p>Thương hiệu: {product.brand}</p>
-                    <p>Dạng: {product.type}</p>
-                    <p>Giá: {product.price.toLocaleString()} VND</p>
-                    <p className="age-range">Độ tuổi: {product.ageRange}</p>
+                    <p>Brand: {product.brand}</p>
+                    <p>Type: {product.type}</p>
+                    <p>Price: {product.price.toLocaleString()} VND</p>
+                    <p className="age-range">Age range: {product.ageRange}</p>
                   </div>
                 ))
               ) : (
-                <p id="no-products-message">Không có sản phẩm nào phù hợp.</p>
+                <p id="no-products-message">No matching products found.</p>
               )}
             </div>
           </div>
         </div>
         <Pagination
-          totalPages={Math.ceil(filteredProducts.length / itemsPerPage)} // Tổng số trang
+          totalPages={Math.ceil(filteredProducts.length / itemsPerPage)} // Total pages
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />

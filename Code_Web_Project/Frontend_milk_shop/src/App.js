@@ -1,15 +1,18 @@
+// Import necessary components and styles
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Breadcrumb from './components/Breadcrumb';
-import FilterBar from './components/FilterBar';
-import ProductList from './components/ProductList';
+import FilterBar from './pages/users/FilterBar';
+// import ProductList from './components/ProductList';
 import Pagination from './components/Pagination';
 import Footer from './components/Footer';
-import './styles.css';
+
+// Import separated styles
+import './styles/common.css';
+
 
 const App = () => {
-  const [products, setProducts] = useState([]); // Replace with actual product data
   const [category, setCategory] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -18,7 +21,7 @@ const App = () => {
   };
 
   const handleShowAllProducts = () => {
-    // Implement show all products logic
+    // Implement logic to show all products
   };
 
   const handleCategorySelect = (categoryName) => {
@@ -37,11 +40,17 @@ const App = () => {
   return (
     <div>
       <Header onSearch={handleSearch} onShowAllProducts={handleShowAllProducts} />
-      <Sidebar onCategorySelect={handleCategorySelect} />
       <main>
-        <Breadcrumb category={category} />
-        <FilterBar onFilter={handleFilter} selectedCategory={category} />
-        <ProductList products={products} />
+        <div className="container">
+          <Sidebar onCategorySelect={handleCategorySelect} />
+          <div>
+            <Breadcrumb category={category} />
+            <div className="filter-bar">
+              <FilterBar onFilter={handleFilter} selectedCategory={category} />
+            </div>
+          </div>
+        </div>
+        {/* <ProductList products={products} /> */}
         <Pagination
           totalPages={5} // Replace with actual total pages
           currentPage={currentPage}

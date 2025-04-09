@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../../styles/filterBar.css'; // Correct path to the CSS file
 
 const FilterBar = ({ onFilter, selectedCategory }) => {
   const [ageOptions, setAgeOptions] = useState([]);

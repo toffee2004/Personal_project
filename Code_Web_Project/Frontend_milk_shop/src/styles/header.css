@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4CAF50;
+  padding: 10px;
+  color: white;
+  z-index: 1; 
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.search-bar label {
+  font-size: 14px;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.search-bar input,
+.search-bar button {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.search-bar button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.search-bar button:hover {
+  background-color: #45a049;
+}

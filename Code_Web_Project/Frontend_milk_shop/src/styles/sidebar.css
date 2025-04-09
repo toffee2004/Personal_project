@@ -1,0 +1,67 @@
+/* Sidebar in minimized state */
+.sidebar {
+  width: 180px; /* Minimized sidebar */
+  background-color: #2C3E50;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 10px; /* Reduce padding */
+  overflow-y: auto;
+  transition: width 0.3s ease; /* Smooth transition */
+  z-index: 1000; /* Ensure Sidebar is above Footer */
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  position: relative;
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  white-space: nowrap; /* Ensure text does not wrap */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Display "..." if text is truncated */
+}
+
+.sidebar li.active {
+  background-color: #E74C3C;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.sidebar li:hover {
+  background-color: #34495E;
+  color: white;
+}
+
+/* Sidebar submenu */
+.sidebar .parent {
+  cursor: pointer;
+}
+
+.sidebar .submenu {
+  display: none;
+  position: relative;
+  background-color: #34495E;
+  padding: 10px;
+  list-style: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  
+}
+.submenu li:hover {
+  color: #8f3232;
+}
+
+.sidebar .parent:hover .submenu {
+  display: block;
+}

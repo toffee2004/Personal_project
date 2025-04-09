@@ -1,0 +1,83 @@
+/* Reset and basic setup */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  background-color: #ffffff;
+}
+
+/* Common button styles */
+button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Common input styles */
+input,
+select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+#no-products-message {
+  font-size: 16px;
+  color: red;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sidebar:hover + .body {
+  margin-left: 250px; 
+}
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease; /* Smooth transition */
+}
+
+.app-container.sidebar-expanded .content,
+.app-container.sidebar-expanded header,
+.app-container.sidebar-expanded footer {
+  margin-left: 200px; /* Adjust margin when Sidebar is expanded */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 60px; /* Default margin when Sidebar is minimized */
+  width: calc(100% - 60px); /* Adjust width to exclude Sidebar */
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 60px; /* Default margin when Sidebar is minimized */
+  width: calc(100% - 60px); /* Adjust width to exclude Sidebar */
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+.content {
+  margin-left: 60px; /* Default margin when Sidebar is minimized */
+  transition: margin-left 0.3s ease; /* Smooth transition */
+}

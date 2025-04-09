@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/pagination.css'; // Correct path to the CSS file
 const Pagination = ({ totalPages, currentPage, onPageChange }) => {
   return (
     <div className="pagination">

@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Pagination from './components/Pagination';
 import Footer from './components/Footer';
+// Import TestConnect component
+import TestConnect from './test_connect';
 
 // Import separated styles
 import './styles/container.css';
@@ -196,6 +198,12 @@ const App = () => {
   return (
     <div>
       <Header onSearch={handleSearch} onShowAllProducts={handleShowAllProducts} />
+      {/* Hiển thị TestConnect kế bên Header */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+        <TestConnect />
+      </div>
+
+
       <main>
         <div className="container">
           <Sidebar onCategorySelect={handleCategorySelect} />
@@ -228,6 +236,7 @@ const App = () => {
         />
       </main>
       <Footer />
+
     </div>
   );
 };
